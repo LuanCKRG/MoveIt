@@ -11,7 +11,7 @@
     align-items: center;
   }
   
-  .content {
+  .container {
     background: var(--white);
     width: 100%;
     max-width: 400px;
@@ -24,7 +24,7 @@
     position: relative;
   }
   
-  .content header {
+  .container header {
     font-size: 8.75rem;
     font-weight: 600;
     color: var(--blue);
@@ -32,18 +32,18 @@
     background-size: contain;
   }
   
-  .content strong {
+  .container strong {
     font-size: 2.25rem;
     color: var(--title);
   }
   
-  .content p {
+  .container p {
     font-size: 1.25rem;
     color: var(--text);
     margin-top: 0.25rem;
   }
   
-  .content button {
+  .container button {
     position: absolute;
     right: 0.5rem;
     top: 0.5rem;

@@ -18,6 +18,7 @@ interface ChallengesContextData{
     ResetChallenge: () => void;
     StartNewChallenge: () => void;
     CompleteChallenge: () => void;
+    CloseLevelUpModal: () => void;
 }
 interface ChallengesProviderProps{
     children: ReactNode;
@@ -35,6 +36,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     const [ challengesCompleted, setCHallengesCompleted ] = useState(rest.challengesCompleted ?? 0 )
 
     const [ activeChallenge, setActiveChallenge ] = useState(null)
+    const [ isLevelUpModalOpen, setIsLeveleUpModalOpen ] = useState(false)
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
@@ -50,6 +52,11 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     function levelUp(){
         setLevel(level + 1)
+        setIsLeveleUpModalOpen(true)
+    }
+
+    function CloseLevelUpModal(){
+        setIsLeveleUpModalOpen(false)
     }
 
     function StartNewChallenge(){
@@ -92,9 +99,9 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }
 
     return(
-        <ChallengesContext.Provider value={{ CompleteChallenge, level, currentExperience, experienceToNextLevel, challengesCompleted, StartNewChallenge, levelUp, activeChallenge, ResetChallenge}}>
+        <ChallengesContext.Provider value={{ CompleteChallenge, level, currentExperience, experienceToNextLevel, challengesCompleted, StartNewChallenge, levelUp, activeChallenge, ResetChallenge, CloseLevelUpModal }}>
             {children}
-            <LevelUpModal />
+            { isLevelUpModalOpen && <LevelUpModal />}
         </ChallengesContext.Provider>
     )
 }

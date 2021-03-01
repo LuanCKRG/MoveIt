@@ -25,7 +25,7 @@ export const Countdown = () => {
             </div>
 
             { hasFinished ? (
-                <button disabled className={styles.countdownButton}>
+                <button disabled id='disable' className={styles.countdownButton}>
                     Ciclo encerrado ✅
                 </button>
             )

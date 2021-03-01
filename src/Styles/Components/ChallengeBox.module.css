@@ -98,7 +98,7 @@
 }
   
 .challengeActive footer button.challengeFailedButton{
-    background: var(--red);
+    background-color: var(--red);
 }
   
 .challengeActive footer button.challengeSucceededButton{
