@@ -18,7 +18,7 @@ interface CountdownProviderProps{
 
 export const CountdownContext = createContext({} as CountdownContextData)
 
-export function CountdownProvider({ children} ) {
+export const CountdownProvider = ({ children}) => {
     const { StartNewChallenge } = useContext(ChallengesContext)
 
     const [time, setTime] = useState(25 * 60)
